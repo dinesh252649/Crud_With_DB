@@ -1,24 +1,20 @@
 using System.Diagnostics;
-using CRUD_With_DB.Data;
-using CRUD_With_DB.Models;
+using CRUD_With_DB.UI.Models;
 using Microsoft.AspNetCore.Mvc;
 
-namespace CRUD_With_DB.Controllers
+namespace CRUD_With_DB.UI.Controllers
 {
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
-        private readonly ApplicationDBContext _dbcontext;
 
-        public HomeController(ILogger<HomeController> logger, ApplicationDBContext dbcontext)
+        public HomeController(ILogger<HomeController> logger)
         {
             _logger = logger;
-            this._dbcontext = dbcontext;
         }
 
         public IActionResult Index()
         {
-            var result = _dbcontext.Peoples.ToList();
             return View();
         }
 

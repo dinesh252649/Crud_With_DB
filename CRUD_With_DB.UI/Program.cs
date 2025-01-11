@@ -1,17 +1,14 @@
-using CRUD_With_DB.Data;
+using CRUD_With_DB.Repository;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
-builder.Services.AddDbContext<ApplicationDBContext>(options => options.UseSqlServer
-(builder.Configuration.GetConnectionString("DefaultConnection")));
-
 // Add services to the container.
 builder.Services.AddControllersWithViews();
-
-
-
+builder.Services.AddControllersWithViews();
 var app = builder.Build();
+builder.Services.AddDbContext<ApplicationDBContext>(options => options.
+UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"),b=>b.MigrationsAssembly("CRUD_With_DB.UI")));
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
@@ -30,6 +27,6 @@ app.UseAuthorization();
 
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=People}/{action=Index}/{id?}");
+    pattern: "{controller=Home}/{action=Index}/{id?}");
 
 app.Run();
