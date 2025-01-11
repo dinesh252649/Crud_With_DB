@@ -18,6 +18,7 @@ namespace CRUD_With_DB.Controllers
 
         public IActionResult Index()
         {
+            var result = _dbcontext.Peoples.ToList();
             return View();
         }
 
