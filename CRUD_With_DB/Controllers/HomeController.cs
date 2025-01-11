@@ -1,4 +1,5 @@
 using System.Diagnostics;
+using CRUD_With_DB.Data;
 using CRUD_With_DB.Models;
 using Microsoft.AspNetCore.Mvc;
 
@@ -7,10 +8,12 @@ namespace CRUD_With_DB.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
+        private readonly ApplicationDBContext _dbcontext;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(ILogger<HomeController> logger, ApplicationDBContext dbcontext)
         {
             _logger = logger;
+            this._dbcontext = dbcontext;
         }
 
         public IActionResult Index()
