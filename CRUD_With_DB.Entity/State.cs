@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
 namespace CRUD_With_DB.Entity
 {
@@ -14,7 +10,7 @@ namespace CRUD_With_DB.Entity
         //Navigation property
         public Countary Countary { get; set; } = new Countary();
         //Navigation property
-        public ICollection<City> Citys { get; set; }=new HashSet<City>();
+        public ICollection<City> Citys { get; set; } = new HashSet<City>();
 
     }
 }

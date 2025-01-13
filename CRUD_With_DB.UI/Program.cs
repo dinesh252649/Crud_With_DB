@@ -1,14 +1,24 @@
 using CRUD_With_DB.Repository;
+using CRUD_With_DB.Repository.Implimentations;
+using CRUD_With_DB.Repository.Interfaces;
 using Microsoft.EntityFrameworkCore;
+
+
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
-builder.Services.AddControllersWithViews();
-var app = builder.Build();
+
 builder.Services.AddDbContext<ApplicationDBContext>(options => options.
-UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"),b=>b.MigrationsAssembly("CRUD_With_DB.UI")));
+UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"), b => b.MigrationsAssembly("CRUD_With_DB.UI")
+));
+
+builder.Services.AddScoped<ICity, CityReco>();
+builder.Services.AddScoped<IStateRepo, StateRepo>();
+builder.Services.AddScoped<IContryRepo, CountryRepo>();
+
+var app = builder.Build();
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
