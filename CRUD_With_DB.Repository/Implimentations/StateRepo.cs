@@ -12,19 +12,19 @@ namespace CRUD_With_DB.Repository.Implimentations
         }
         public void Edit(State states)
         {
-            _dbContext.State.Add(states);
+            _dbContext.States.Add(states);
             _dbContext.SaveChanges();
         }
 
         public IEnumerable<State> GetAll()
         {
-            var resul = _dbContext.State.ToList();
+            var resul = _dbContext.States.ToList();
             return resul;
         }
 
         public State GetById(int id)
         {
-            var result = _dbContext.State.Find(id);
+            var result = _dbContext.States.Find(id);
             return result;
         }
 

@@ -23,7 +23,8 @@ namespace CRUD_With_DB.Repository.Implimentations
 
         public IEnumerable<City> GetAll()
         {
-            var resul = _dbContext.Citys.ToList();
+            //var resul = _dbContext.Citys.ToList();
+            var resul=_dbContext.Citys.ToList();
             return resul;
         }
 
