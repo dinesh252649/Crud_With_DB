@@ -1,4 +1,5 @@
-﻿using CRUD_With_DB.Entity;
+﻿using System.Diagnostics.Metrics;
+using CRUD_With_DB.Entity;
 using CRUD_With_DB.Repository.Interfaces;
 
 namespace CRUD_With_DB.Repository.Implimentations
@@ -8,7 +9,7 @@ namespace CRUD_With_DB.Repository.Implimentations
         private readonly ApplicationDBContext _dbContext;
         public CountryRepo(ApplicationDBContext dbContext)
         {
-            this._dbContext = dbContext;
+            _dbContext = dbContext;
 
         }
         public void Edit(Countary countary)
@@ -19,13 +20,20 @@ namespace CRUD_With_DB.Repository.Implimentations
 
         public IEnumerable<Countary> GetAll()
         {
-            var result = _dbContext.Countaries.ToList();
+            //Countarys
+            //var result = _dbContext.Countaries.ToList();
+            var result = _dbContext.Countarys.ToList();
+           // var result = _dbContext.Citys.ToList();
+
+            
+            //entity.ToTable("tDataLoad", "log");
             return result;
         }
 
         public Countary GetById(int id)
         {
-            var result = _dbContext.Countaries.Find(id);
+            //var result = _dbContext.Countaries.Find(id);
+            var result = _dbContext.Countarys.Find(id);
             return result;
         }
 

@@ -36,7 +36,8 @@ namespace CRUD_With_DB.UI.Migrations
                     b.Property<int?>("StateID")
                         .HasColumnType("int");
 
-                    b.Property<int>("StateIdd")
+                   // b.Property<int>("StateIdd")
+                    b.Property<int>("StateId")
                         .HasColumnType("int");
 
                     b.HasKey("ID");
@@ -59,7 +60,8 @@ namespace CRUD_With_DB.UI.Migrations
 
                     b.HasKey("ID");
 
-                    b.ToTable("Countaries");
+                   // b.ToTable("Countaries");
+                    b.ToTable("Countary");
                 });
 
             modelBuilder.Entity("CRUD_With_DB.Entity.State", b =>

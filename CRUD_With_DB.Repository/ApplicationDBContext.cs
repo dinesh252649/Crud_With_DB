@@ -11,7 +11,8 @@ namespace CRUD_With_DB.Repository
 
         }
         // public DbSet<People> Peoples { get; set; }
-        public DbSet<Countary> Countaries { get; set; }
+        public DbSet<Countary> Countarys { get; set; }
+        //public DbSet<Countary> Countaries { get; set; }
         public DbSet<State> States { get; set; }
         public DbSet<City> Citys { get; set; }
 

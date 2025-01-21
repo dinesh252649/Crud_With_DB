@@ -16,6 +16,7 @@ namespace CRUD_With_DB.UI.Controllers
         [HttpGet]
         public IActionResult Index()
         {
+            
             var city = _contryRepo.GetAll();
             //var city = _contryRepo.GetAll();
             return View(city);

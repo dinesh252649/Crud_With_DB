@@ -7,12 +7,13 @@ using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
+//// Add services to the container.
  builder.Services.AddControllersWithViews();
  
 builder.Services.AddDbContext<ApplicationDBContext>(options => options.
 UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")//, b => b.MigrationsAssembly("CRUD_With_DB.UI")
 ));
+
 
 builder.Services.AddTransient<ICity, CityReco>();
 builder.Services.AddTransient<IStateRepo, StateRepo>();
